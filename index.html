@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freelance Software Engineering Portfolio | 2025–2026</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --header-bg: #0f172a;
+      --accent: #2563eb;
+      --text: #1e293b;
+      --muted: #64748b;
+      --tag-bg: #f1f5f9;
+      --tag-text: #475569;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ─────────────────────────────── */
+    header {
+      background: var(--header-bg);
+      color: white;
+      padding: 64px 40px 52px;
+      text-align: center;
+    }
+
+    .period-badge {
+      display: inline-block;
+      background: rgba(37, 99, 235, 0.25);
+      border: 1px solid rgba(99, 160, 255, 0.4);
+      color: #93c5fd;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    header p.subtitle {
+      color: #94a3b8;
+      font-size: 1.05rem;
+      max-width: 580px;
+      margin: 0 auto 28px;
+    }
+
+    .header-skills {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .header-skill {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #cbd5e1;
+      padding: 4px 13px;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+
+    /* ── STATS BAR ──────────────────────────── */
+    .stats-bar {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 28px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 56px;
+      flex-wrap: wrap;
+    }
+
+    .stat { text-align: center; }
+
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* ── MAIN ───────────────────────────────── */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 52px 24px 64px;
+    }
+
+    .section-heading {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      margin-bottom: 28px;
+    }
+
+    /* ── PROJECT GRID ───────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(540px, 1fr));
+      gap: 24px;
+    }
+
+    /* ── PROJECT CARD ───────────────────────── */
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 10px 36px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .project-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .icon-purple  { background: #f5f3ff; }
+    .icon-orange  { background: #fff7ed; }
+    .icon-blue    { background: #eff6ff; }
+    .icon-green   { background: #f0fdf4; }
+
+    .card-title-group { flex: 1; min-width: 0; }
+
+    .project-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .type-badges { display: flex; gap: 5px; flex-wrap: wrap; }
+
+    .type-badge {
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .b-backend   { background: #dbeafe; color: #1e40af; }
+    .b-frontend  { background: #d1fae5; color: #065f46; }
+    .b-mobile    { background: #fce7f3; color: #9d174d; }
+    .b-ai        { background: #ede9fe; color: #5b21b6; }
+    .b-fullstack { background: #fff7ed; color: #9a3412; }
+    .b-pwa       { background: #ecfdf5; color: #065f46; }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    /* highlights */
+    .highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .hl-item {
+      background: var(--tag-bg);
+      border-radius: 7px;
+      padding: 8px 12px;
+    }
+
+    .hl-num {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .hl-label {
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    /* tech stack */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .tech-tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+    }
+
+    /* divider */
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+    /* links */
+    .links-section { display: flex; flex-direction: column; gap: 12px; }
+
+    .link-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .link-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      min-width: 78px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 13px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      cursor: pointer;
+    }
+
+    .btn:hover { opacity: 0.82; }
+
+    .btn-primary  { background: var(--accent); color: white; }
+    .btn-outline  { background: white; color: var(--text); border: 1px solid var(--border); }
+    .btn-purple   { background: #7c3aed; color: white; }
+
+    /* credentials box */
+    .creds-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 9px 13px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cred-item { display: flex; gap: 6px; align-items: center; font-size: 13px; }
+    .cred-key  { color: var(--muted); font-size: 12px; }
+    .cred-val  { font-weight: 600; font-family: 'Consolas', 'SF Mono', monospace; color: var(--text); }
+
+    /* todo note */
+    .todo {
+      background: #fffbeb;
+      border: 1px dashed #fbbf24;
+      border-radius: 6px;
+      padding: 6px 11px;
+      font-size: 12.5px;
+      color: #92400e;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* screenshots */
+    .screenshots-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 8px;
+    }
+
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .screenshot-slot {
+      aspect-ratio: 16/9;
+      background: #f1f5f9;
+      border: 2px dashed #cbd5e1;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 11.5px;
+      text-align: center;
+      padding: 10px;
+      cursor: default;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screenshot-slot img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .screenshot-slot img:hover { transform: scale(1.03); }
+
+    .slot-icon { font-size: 22px; margin-bottom: 5px; }
+
+    /* lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 96vw;
+      max-height: 96vh;
+      border-radius: 8px;
+    }
+
+    .lb-close {
+      position: absolute;
+      top: 18px; right: 22px;
+      color: white;
+      font-size: 30px;
+      line-height: 1;
+      cursor: pointer;
+      background: none;
+      border: none;
+      opacity: 0.8;
+    }
+
+    .lb-close:hover { opacity: 1; }
+
+    /* ── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--header-bg);
+      color: #94a3b8;
+      text-align: center;
+      padding: 36px 24px;
+      font-size: 14px;
+    }
+
+    footer a { color: #60a5fa; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    .avail-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 768px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      header h1 { font-size: 1.9rem; }
+      header { padding: 44px 20px 36px; }
+      .stats-bar { gap: 28px; padding: 22px 20px; }
+      main { padding: 36px 16px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ HEADER -->
+<header>
+  <div class="period-badge">&#128197; Freelance Period: June 2025 – March 2026</div>
+  <h1>Freelance Software Engineering Portfolio</h1>
+  <p class="subtitle">
+    Production-grade applications built end-to-end as a sole contract developer
+    for clients across food delivery, construction management, e-commerce, and AI Powered Lead Generation.
+  </p>
+  <div class="header-skills">
+    <span class="header-skill">Node.js (7+ years)</span>
+    <span class="header-skill">React 4+</span>
+    <span class="header-skill">React Native 3+</span>
+    <span class="header-skill">TypeScript 3+</span>
+    <span class="header-skill">MongoDB 5+</span>
+    <span class="header-skill">Redis 2+</span>
+    <span class="header-skill">RabbitMQ 2+</span>
+    <span class="header-skill">AWS 5+</span>
+    <span class="header-skill">Claude AI 1+</span>
+    <span class="header-skill">Docker</span>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════ STATS -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">4</div>
+    <div class="stat-label">Projects Delivered</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">200+</div>
+    <div class="stat-label">API Endpoints Built</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100+</div>
+    <div class="stat-label">Mobile Screens</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">10+</div>
+    <div class="stat-label">Third-Party Integrations</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">4</div>
+    <div class="stat-label">Production Deployments</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PROJECTS -->
+<main>
+  <p class="section-heading">&#128204; Projects</p>
+
+  <div class="projects-grid">
+
+    <!-- ─── CARD 1: Lead Hunter ─────────────────── -->
+    <div class="project-card">
+      <div class="card-header">
+        <div class="project-icon icon-purple">🤖</div>
+        <div class="card-title-group">
+          <div class="project-name">Lead Hunter — AI-Powered Lead Generation</div>
+          <div class="type-badges">
+            <span class="type-badge b-fullstack">Full-Stack</span>
+            <span class="type-badge b-ai">AI / LLM</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="project-desc">
+        Built a B2B lead generation Platform for a global-market (world wide) client where users describe a target
+        in plain language (e.g. <em>"Find 200 dentists in Dubai"</em>) and an AI agent autonomously
+        searches, deduplicates, enriches, and stores results in real time — replacing a fully
+        manual research process.
+      </p>
+
+      <div class="highlights">
+        <div class="hl-item"><span class="hl-num">Claude AI</span><br><span class="hl-label">Agentic loop + tool use</span></div>
+        <div class="hl-item"><span class="hl-num">SSE Streaming</span><br><span class="hl-label">Live agent progress</span></div>
+        <div class="hl-item"><span class="hl-num">RBAC</span><br><span class="hl-label">Granular permissions</span></div>
+        <div class="hl-item"><span class="hl-num">4 Workers</span><br><span class="hl-label">RabbitMQ async pipeline</span></div>
+      </div>
+
+      <div class="tech-stack">
+        <span class="tech-tag">React 18</span>
+        <span class="tech-tag">Vite</span>
+        <span class="tech-tag">Ant Design</span>
+        <span class="tech-tag">Node.js</span>
+        <span class="tech-tag">Express.js</span>
+        <span class="tech-tag">MongoDB</span>
+        <span class="tech-tag">Redis</span>
+        <span class="tech-tag">RabbitMQ</span>
+        <span class="tech-tag">Claude API</span>
+        <span class="tech-tag">AWS SES/S3</span>
+        <span class="tech-tag">Twilio</span>
+        <span class="tech-tag">i18n (AR/EN)</span>
+        <span class="tech-tag">Docker</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="links-section">
+        <div class="link-row">
+          <span class="link-label">Case Study</span>
+          <a class="btn btn-primary" href="lead_hunter/FREELANCE_PORTFOLIO_CASE_STUDY.md">
+            📄 View Case Study
+          </a>
+        </div>
+
+        <div class="link-row">
+          <span class="link-label">Live Demo</span>
+          <!-- OPTION A: If you have a demo URL, replace the todo div below with:
+               <a class="btn btn-outline" href="https://your-demo-url.com" target="_blank">🌐 Open Demo</a>
+               and remove the todo div -->
+          <div class="todo">⚠️ Add demo URL — replace this with your link</div>
+        </div>
+
+        <div class="link-row">
+          <span class="link-label">Credentials</span>
+          <!-- OPTION B: Add login details for the demo account:
+               <div class="creds-box">
+                 <div class="cred-item"><span class="cred-key">Email</span><span class="cred-val">demo@example.com</span></div>
+                 <div class="cred-item"><span class="cred-key">Password</span><span class="cred-val">Demo@1234</span></div>
+               </div>
+               and remove the todo div below -->
+          <div class="todo">⚠️ Add demo login credentials here</div>
+        </div>
+
+        <!-- Screenshots — replace placeholder slots with <img> tags once you have screenshots
+             Example: <img src="screenshots/lead-hunter/screen1.png" alt="Dashboard" onclick="openLightbox(this.src)">
+        -->
+        <div>
+          <div class="screenshots-title">Screenshots</div>
+          <div class="screenshots-grid">
+            <div class="screenshot-slot">
+              <img src="screenshots/lead-hunter/leadhunter-login.png" alt="Lead Hunter Dashboard" onclick="openLightbox(this.src)">
+              <!-- <div class="slot-icon">🖼️</div>
+              <span>Add screenshot<br>screenshots/lead-hunter/screen1.png</span> -->
+            </div>
+            <div class="screenshot-slot">
+              <img src="screenshots/lead-hunter/leadsearch.png" alt="AI Agent in action" onclick="openLightbox(this.src)">
+              <!-- <div class="slot-icon">🖼️</div>
+              <span>Add screenshot<br>screenshots/lead-hunter/screen2.png</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CARD 2: Meat & More ──────────────────── -->
+    <div class="project-card">
+      <div class="card-header">
+        <div class="project-icon icon-orange">🍖</div>
+        <div class="card-title-group">
+          <div class="project-name">Meat & More — Food Delivery Platform</div>
+          <div class="type-badges">
+            <span class="type-badge b-backend">Backend API</span>
+            <span class="type-badge b-mobile">Mobile App</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="project-desc">
+        Designed and built the complete backend for a multi-vendor food delivery marketplace
+        (similar to UberEats/Talabat) and the customer-facing React Native app — serving
+        customers, restaurant vendors, and delivery partners from a single API with real-time
+        order tracking.
+      </p>
+
+      <div class="highlights">
+        <div class="hl-item"><span class="hl-num">25+</span><br><span class="hl-label">Backend feature modules</span></div>
+        <div class="hl-item"><span class="hl-num">40+ Screens</span><br><span class="hl-label">Customer mobile app</span></div>
+        <div class="hl-item"><span class="hl-num">4 Roles</span><br><span class="hl-label">Customer / Vendor / Rider / Admin</span></div>
+        <div class="hl-item"><span class="hl-num">Real-time</span><br><span class="hl-label">Socket.IO order tracking</span></div>
+      </div>
+
+      <div class="tech-stack">
+        <span class="tech-tag">Node.js</span>
+        <span class="tech-tag">Express.js v5</span>
+        <span class="tech-tag">MongoDB</span>
+        <span class="tech-tag">Redis</span>
+        <span class="tech-tag">Socket.IO</span>
+        <span class="tech-tag">RabbitMQ</span>
+        <span class="tech-tag">Stripe</span>
+        <span class="tech-tag">Razorpay</span>
+        <span class="tech-tag">React Native</span>
+        <span class="tech-tag">Expo 54</span>
+        <span class="tech-tag">Redux Toolkit</span>
+        <span class="tech-tag">Firebase FCM</span>
+        <span class="tech-tag">AWS S3/SES</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="links-section">
+        <div class="link-row">
+          <span class="link-label">Case Study</span>
+          <a class="btn btn-primary" href="meatandmore/FREELANCE-PROJECT-PORTFOLIO.md">
+            📄 Backend Case Study
+          </a>
+        </div>
+
+        <div class="link-row">
+          <span class="link-label">Live Demo</span>
+          <!-- Replace with your demo URL:
+               <a class="btn btn-outline" href="https://your-demo-url.com" target="_blank">🌐 Open Demo</a> -->
+          <div class="todo">⚠️ Add demo URL — replace this with your link</div>
+        </div>
+
+        <div class="link-row">
+          <span class="link-label">Credentials</span>
+          <!-- Add demo credentials:
+               <div class="creds-box">
+                 <div class="cred-item"><span class="cred-key">Phone</span><span class="cred-val">+91 99999 00000</span></div>
+                 <div class="cred-item"><span class="cred-key">OTP</span><span class="cred-val">1234</span></div>
+               </div> -->
+          <div class="todo">⚠️ Add demo login credentials here</div>
+        </div>
+
+        <div>
+          <div class="screenshots-title">Screenshots</div>
+          <div class="screenshots-grid">
+            <div class="screenshot-slot">
+              <!-- <img src="screenshots/meat-and-more/screen1.png" alt="Home Screen" onclick="openLightbox(this.src)"> -->
+              <div class="slot-icon">🖼️</div>
+              <span>Add screenshot<br>screenshots/meat-and-more/screen1.png</span>
+            </div>
+            <div class="screenshot-slot">
+              <!-- <img src="screenshots/meat-and-more/screen2.png" alt="Order Tracking" onclick="openLightbox(this.src)"> -->
+              <div class="slot-icon">🖼️</div>
+              <span>Add screenshot<br>screenshots/meat-and-more/screen2.png</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CARD 3: PKA CoatOps ──────────────────── -->
+    <div class="project-card">
+      <div class="card-header">
+        <div class="project-icon icon-blue">🏗️</div>
+        <div class="card-title-group">
+          <div class="project-name">CoatOps — Construction Site Field Ops</div>
+          <div class="type-badges">
+            <span class="type-badge b-fullstack">Full-Stack</span>
+            <span class="type-badge b-pwa">PWA</span>
+            <span class="type-badge b-mobile">Mobile App</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="project-desc">
+        Built a full-stack offline-first PWA for managing painting and coating works across
+        construction sites — replacing paper-based workflows for worker attendance, material
+        inventory, tool tracking, and progress reporting. Also delivered a React Native mobile app
+        for foremen and labourers. Deployed on AWS EC2 with GitHub Actions CI/CD.
+      </p>
+
+      <div class="highlights">
+        <div class="hl-item"><span class="hl-num">116</span><br><span class="hl-label">REST API endpoints (Swagger)</span></div>
+        <div class="hl-item"><span class="hl-num">42 Pages</span><br><span class="hl-label">React frontend (PWA)</span></div>
+        <div class="hl-item"><span class="hl-num">36+ Screens</span><br><span class="hl-label">React Native mobile app</span></div>
+        <div class="hl-item"><span class="hl-num">Offline-First</span><br><span class="hl-label">IndexedDB + Workbox sync</span></div>
+      </div>
+
+      <div class="tech-stack">
+        <span class="tech-tag">Node.js 18</span>
+        <span class="tech-tag">Express.js</span>
+        <span class="tech-tag">React 18</span>
+        <span class="tech-tag">Vite</span>
+        <span class="tech-tag">Ant Design</span>
+        <span class="tech-tag">Zustand</span>
+        <span class="tech-tag">MongoDB</span>
+        <span class="tech-tag">Redis</span>
+        <span class="tech-tag">RabbitMQ</span>
+        <span class="tech-tag">Workbox PWA</span>
+        <span class="tech-tag">React Native</span>
+        <span class="tech-tag">Expo 54</span>
+        <span class="tech-tag">AWS EC2</span>
+        <span class="tech-tag">GitHub Actions</span>
+        <span class="tech-tag">PM2 + Nginx</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="links-section">
+        <div class="link-row">
+          <span class="link-label">Case Study</span>
+          <a class="btn btn-primary" href="pka/FREELANCE-PROJECT-PORTFOLIO.md">
+            📄 Full-Stack Case Study
+          </a>
+          <a class="btn btn-outline" href="pka/01-FREELANCE-PROJECT-PORTFOLIO.md">
+            📱 Mobile App Case Study
+          </a>
+        </div>
+
+        <div class="link-row">
+          <span class="link-label">Live Demo</span>
+          <!-- Replace with EC2 URL or demo URL:
+               <a class="btn btn-outline" href="http://your-ec2-ip" target="_blank">🌐 Open Demo</a> -->
+          <div class="todo">⚠️ Add demo URL (AWS EC2 Elastic IP / domain)</div>
+        </div>
+
+        <div class="link-row">
+          <span class="link-label">Credentials</span>
+          <!-- Example credentials (fill in real ones):
+               <div class="creds-box">
+                 <div class="cred-item"><span class="cred-key">Email</span><span class="cred-val">admin@coatops.com</span></div>
+                 <div class="cred-item"><span class="cred-key">Password</span><span class="cred-val">Admin@123</span></div>
+                 <div class="cred-item"><span class="cred-key">Role</span><span class="cred-val">Admin</span></div>
+               </div> -->
+          <div class="todo">⚠️ Add demo login credentials here</div>
+        </div>
+
+        <div>
+          <div class="screenshots-title">Screenshots</div>
+          <div class="screenshots-grid">
+            <div class="screenshot-slot">
+              <!-- <img src="screenshots/coatops/screen1.png" alt="Dashboard" onclick="openLightbox(this.src)"> -->
+              <div class="slot-icon">🖼️</div>
+              <span>Add screenshot<br>screenshots/coatops/screen1.png</span>
+            </div>
+            <div class="screenshot-slot">
+              <!-- <img src="screenshots/coatops/screen2.png" alt="Site Management" onclick="openLightbox(this.src)"> -->
+              <div class="slot-icon">🖼️</div>
+              <span>Add screenshot<br>screenshots/coatops/screen2.png</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CARD 4: Snapkart ─────────────────────── -->
+    <div class="project-card">
+      <div class="card-header">
+        <div class="project-icon icon-green">🛒</div>
+        <div class="card-title-group">
+          <div class="project-name">Snapkart — E-Commerce Marketplace Backend</div>
+          <div class="type-badges">
+            <span class="type-badge b-backend">Backend API</span>
+            <span class="type-badge b-frontend">Admin Panel</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="project-desc">
+        Designed and built a production-grade TypeScript e-commerce backend from scratch covering
+        product catalog, multi-vendor store support, blog CMS, promotions, and a React admin
+        panel. Features dual-secret JWT auth, product variant management with rich filtering,
+        image optimization, and an SEO-friendly slug system across all 10 content types.
+      </p>
+
+      <div class="highlights">
+        <div class="hl-item"><span class="hl-num">50+</span><br><span class="hl-label">API endpoints (public/private/admin)</span></div>
+        <div class="hl-item"><span class="hl-num">12</span><br><span class="hl-label">MongoDB collections</span></div>
+        <div class="hl-item"><span class="hl-num">10</span><br><span class="hl-label">Content types with auto-slug</span></div>
+        <div class="hl-item"><span class="hl-num">Dual JWT</span><br><span class="hl-label">Separate admin secret</span></div>
+      </div>
+
+      <div class="tech-stack">
+        <span class="tech-tag">Node.js</span>
+        <span class="tech-tag">Express.js 4</span>
+        <span class="tech-tag">TypeScript 5</span>
+        <span class="tech-tag">MongoDB</span>
+        <span class="tech-tag">Mongoose 8</span>
+        <span class="tech-tag">JWT (Dual-Secret)</span>
+        <span class="tech-tag">Multer + Sharp</span>
+        <span class="tech-tag">Joi Validation</span>
+        <span class="tech-tag">Helmet</span>
+        <span class="tech-tag">React Admin Panel</span>
+        <span class="tech-tag">Jest</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="links-section">
+        <div class="link-row">
+          <span class="link-label">Case Study</span>
+          <a class="btn btn-primary" href="snapkart/01-FREELANCE-PROJECT-PORTFOLIO.md">
+            📄 View Case Study
+          </a>
+        </div>
+
+        <div class="link-row">
+          <span class="link-label">Live Demo</span>
+          <!-- Replace with your demo URL:
+               <a class="btn btn-outline" href="https://your-demo-url.com" target="_blank">🌐 Open Demo</a> -->
+          <div class="todo">⚠️ Add demo URL — replace this with your link</div>
+        </div>
+
+        <div class="link-row">
+          <span class="link-label">Credentials</span>
+          <!-- Add demo credentials:
+               <div class="creds-box">
+                 <div class="cred-item"><span class="cred-key">Email</span><span class="cred-val">admin@snapkart.com</span></div>
+                 <div class="cred-item"><span class="cred-key">Password</span><span class="cred-val">Admin@123</span></div>
+               </div> -->
+          <div class="todo">⚠️ Add demo login credentials here</div>
+        </div>
+
+        <div>
+          <div class="screenshots-title">Screenshots</div>
+          <div class="screenshots-grid">
+            <div class="screenshot-slot">
+              <!-- <img src="screenshots/snapkart/screen1.png" alt="Product Catalog" onclick="openLightbox(this.src)"> -->
+              <div class="slot-icon">🖼️</div>
+              <span>Add screenshot<br>screenshots/snapkart/screen1.png</span>
+            </div>
+            <div class="screenshot-slot">
+              <!-- <img src="screenshots/snapkart/screen2.png" alt="Admin Panel" onclick="openLightbox(this.src)"> -->
+              <div class="slot-icon">🖼️</div>
+              <span>Add screenshot<br>screenshots/snapkart/screen2.png</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /projects-grid -->
+</main>
+
+<!-- ═══════════════════════════════════════ FOOTER -->
+<footer>
+  <p style="margin-bottom:8px;">
+    <span class="avail-dot"></span>
+    <strong style="color:#f1f5f9;">Available for full-time roles and freelance engagements</strong>
+  </p>
+  <p>All projects delivered June 2025 – March 2026 &nbsp;|&nbsp; Source code available for interview walk-through on request</p>
+</footer>
+
+<!-- ═══════════════════════════════════════ LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">&#x2715;</button>
+  <img id="lb-img" src="" alt="Screenshot" onclick="event.stopPropagation()">
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lb-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lb-img').src = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
