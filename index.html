@@ -19,6 +19,8 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
       background: var(--bg);
@@ -108,7 +110,91 @@
     main {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 52px 24px 64px;
+      padding: 32px 24px 64px;
+    }
+
+    /* ── STICKY NAV ─────────────────────────── */
+    .toc {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 14px 40px;
+      background: var(--header-bg);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+      border-radius: 5px;
+    }
+
+    .toc-label {
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-right: 4px;
+      white-space: nowrap;
+    }
+
+    .toc-link {
+      text-decoration: none;
+      color: #cbd5e1;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .toc-link:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .toc-link.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    /* ── SCROLL TO TOP BUTTON ────────────────── */
+    #scroll-top-btn {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 200;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 44px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(37,99,235,0.45);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.25s, transform 0.25s;
+      pointer-events: none;
+    }
+
+    #scroll-top-btn.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    #scroll-top-btn:hover {
+      background: #1d4ed8;
     }
 
     .section-heading {
@@ -621,9 +707,9 @@
 <!-- ═══════════════════════════════════════ HEADER -->
 <header>
   <div class="period-badge">&#128197; Freelance Period: June 2025 – March 2026</div>
-  <h1>Freelance Software Engineering Portfolio</h1>
+  <h1>Full-Stack Developer Portfolio</h1>
   <p class="subtitle">
-    Production-grade applications built end-to-end as a sole contract developer
+    Production-grade applications and built freelance applications end-to-end as a sole contract developer
     for clients across food delivery, construction management, e-commerce, and AI Powered Lead Generation.
   </p>
   <div class="header-skills">
@@ -643,15 +729,15 @@
 <!-- ═══════════════════════════════════════ STATS -->
 <div class="stats-bar">
   <div class="stat">
-    <div class="stat-num">4</div>
+    <div class="stat-num">8</div>
     <div class="stat-label">Projects Delivered</div>
   </div>
   <div class="stat">
-    <div class="stat-num">200+</div>
+    <div class="stat-num">500+</div>
     <div class="stat-label">API Endpoints Built</div>
   </div>
   <div class="stat">
-    <div class="stat-num">100+</div>
+    <div class="stat-num">200+</div>
     <div class="stat-label">Mobile Screens</div>
   </div>
   <div class="stat">
@@ -659,14 +745,216 @@
     <div class="stat-label">Third-Party Integrations</div>
   </div>
   <div class="stat">
-    <div class="stat-num">4</div>
+    <div class="stat-num">6+</div>
     <div class="stat-label">Production Deployments</div>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════ PROJECTS -->
 <main>
-  <p class="section-heading">&#128204; Projects</p>
+  <nav class="toc">
+    <span class="toc-label">Jump to →</span>
+    <a class="toc-link" href="#work-experience">1. Work Experience</a>
+    <a class="toc-link" href="#key-projects">2. Key Projects</a>
+    <a class="toc-link" href="#freelance-projects">3. Freelance Projects</a>
+  </nav>
+  <!-- ═══════════════════════════════════════ WORK EXPERIENCE -->
+  <section class="experience-section">
+    <p id="work-experience" class="project-name section-heading">&#128204; Work Experience</p>
+
+    <div class="exp-timeline">
+
+      <!-- FREELANCE -->
+      <div class="exp-item">
+        <div class="exp-dot">💳</div>
+        <div class="exp-body">
+          <div class="exp-header">
+            <span class="exp-role">Freelance Full-Stack Developer</span>
+            <span class="exp-period">07/2025 – 03/2026</span>
+          </div>
+          <div class="exp-company">Independent Contractor</div>
+          <div class="exp-location">Dubai</div>
+          <ul class="exp-achievements">
+            <li>Working as a Freelance Full-Stack Developer, delivering scalable web and mobile applications using React.js, React Native, and Node.js.</li>
+            <li>LeadHunter – AI-Powered Lead Generation Platform. Built an AI-driven platform to generate targeted business leads from google using natural language queries.</li>
+            <li>CoatOps – Field Operations Platform.Developed a React web-app and React Native mobile app for construction workflow automation.</li>
+            <li>MeatAndMore – Multi-Vendor Food Delivery Platform. Built a scalable platform with real-time order tracking and multi-role mobile applications.</li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <!-- CPOS -->
+      <div class="exp-item">
+        <div class="exp-dot">💳</div>
+        <div class="exp-body">
+          <div class="exp-header">
+            <span class="exp-role">Lead Developer</span>
+            <span class="exp-period">01/2025 – 06/2025</span>
+          </div>
+          <div class="exp-company">CPOS Payments Systems Pvt Ltd</div>
+          <div class="exp-location">Chennai, Tamil Nadu, India</div>
+          <ul class="exp-achievements">
+            <li>Developed a Tap-to-Pay mobile payment application that turns Android smartphones into contactless payment terminals without external hardware.</li>
+            <li>Integrated Stripe Terminal SDK with React Native Expo to enable secure NFC-based card and digital wallet payments on Android and iOS devices.</li>
+            <li>Built responsive and dynamic UI components to guide merchants through in-person transactions with real-time payment status and feedback.</li>
+            <li>Implemented state management and error handling for payment flows, ensuring reliability, recovery, and smooth user experience.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Lookman -->
+      <div class="exp-item">
+        <div class="exp-dot">🏥</div>
+        <div class="exp-body">
+          <div class="exp-header">
+            <span class="exp-role">Senior Software Developer</span>
+            <span class="exp-period">05/2020 – 08/2024</span>
+          </div>
+          <div class="exp-company">Lookman Electroplast Industries Ltd</div>
+          <div class="exp-location">Chennai, Tamil Nadu, India</div>
+          <ul class="exp-achievements">
+            <li>Developed and enhanced an HMIS platform enabling instant appointment booking for doctors and services, supporting healthcare and multi-business use cases.</li>
+            <li>Built scalable GraphQL APIs using Node.js, TypeScript, and MongoDB &amp; ReactJS leveraging aggregation pipelines for optimized data retrieval.</li>
+            <li>Integrated calendar and video conferencing platforms such as Google, Outlook, Zoom, GoToMeeting, and Webex for virtual consultations.</li>
+            <li>Deployed backend services on AWS Lambda using the Serverless framework, monitored via CloudWatch and AWS SES, and contributed to ReactJS booking and appointment modules deployed on AWS Amplify and AWS EC2.</li>
+            <li>Implemented automated workflows including global time zone handling, reminders, and notifications, improving scheduling efficiency.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Servion -->
+      <div class="exp-item">
+        <div class="exp-dot">📞</div>
+        <div class="exp-body">
+          <div class="exp-header">
+            <span class="exp-role">Senior Software Engineer</span>
+            <span class="exp-period">08/2017 – 05/2020</span>
+          </div>
+          <div class="exp-company">Servion Global Solutions</div>
+          <div class="exp-location">Chennai, Tamil Nadu, India</div>
+          <ul class="exp-achievements">
+            <li>Developed a Cisco Finesse–Salesforce CTI Connector enabling softphone controls and automatic customer screen pops within Salesforce CRM for call center agents.</li>
+            <li>Built responsive and scalable UI components using Angular 2/4, HTML5, and CSS3, improving agent productivity and usability.</li>
+            <li>Designed and implemented backend services using Node.js (ES6) to handle inbound and outbound call workflows via U-Nexsys and Cisco UCCX.</li>
+            <li>Handled requirement analysis, development, deployment, and production support, collaborating with cross-functional teams to ensure high availability and performance.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RR Donnelley -->
+      <div class="exp-item">
+        <div class="exp-dot">🖨️</div>
+        <div class="exp-body">
+          <div class="exp-header">
+            <span class="exp-role">Software Engineer</span>
+            <span class="exp-period">01/2012 – 08/2017</span>
+          </div>
+          <div class="exp-company">RR Donnelley</div>
+          <div class="exp-location">Chennai, Tamil Nadu, India</div>
+          <ul class="exp-achievements">
+            <li>Designed and developed responsive UI components using HTML, CSS, Bootstrap, jQuery, and Kendo UI to ensure consistent user experience across the CRM application.</li>
+            <li>Collaborated with MVC developers to integrate UI layers with backend services and SQL Server 2008 data sources.</li>
+            <li>Created reusable UI controls and web forms for shipment tracking, document access, and customer communication features.</li>
+            <li>Ensured cross-browser compatibility, UI consistency, and usability standards across multiple CRM modules.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /exp-timeline -->
+  </section>
+
+  <!-- ═══════════════════════════════════════ KEY PROJECTS -->
+  <section class="key-projects-section">
+    <p id="key-projects" class="project-name section-heading">&#128204; Key Projects</p>
+
+    <div class="kp-grid">
+
+      <div class="kp-card">
+        <div class="kp-header">
+          <div class="kp-icon">💳</div>
+          <div class="kp-title-group">
+            <div class="kp-name">Tap-to-Pay Application</div>
+            <div class="kp-meta">React Native (Expo) · Stripe Terminal · NFC &nbsp;|&nbsp; 01/2025 – 06/2025</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p class="kp-desc">Developed a mobile payment application that turns Android smartphones into contactless payment terminals without additional hardware. Built user interfaces and core features using React Native and Expo, enabling NFC-based tap-to-pay transactions. Ensured a smooth merchant experience for in-person card and digital wallet payments, focusing on performance, reliability, and secure transaction handling.</p>
+        <div class="tech-stack" style="margin-top:14px; margin-bottom:0;">
+          <span class="tech-tag">React Native</span>
+          <span class="tech-tag">Expo</span>
+          <span class="tech-tag">Stripe Terminal SDK</span>
+          <span class="tech-tag">NFC</span>
+          <span class="tech-tag">TypeScript</span>
+        </div>
+      </div>
+
+      <div class="kp-card">
+        <div class="kp-header">
+          <div class="kp-icon">🏥</div>
+          <div class="kp-title-group">
+            <div class="kp-name">HMIS Platform</div>
+            <div class="kp-meta">Node.js · Apollo GraphQL · MongoDB · ReactJS · AWS Lambda &nbsp;|&nbsp; 05/2020 – 08/2024</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p class="kp-desc">Used HMIS to optimize appointment scheduling with instant bookings for doctor consultations and services. Led development of a flexible platform supporting seminar classes, salon bookings, and other business needs. Implemented streamlined workflows, global time zone handling, automated reminders, and integrations with calendars and video conferencing tools such as Google, Outlook, Zoom, and Webex.</p>
+        <div class="tech-stack" style="margin-top:14px; margin-bottom:0;">
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">Apollo GraphQL</span>
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">ReactJS</span>
+          <span class="tech-tag">AWS Lambda</span>
+          <span class="tech-tag">Serverless</span>
+          <span class="tech-tag">TypeScript</span>
+        </div>
+      </div>
+
+      <div class="kp-card">
+        <div class="kp-header">
+          <div class="kp-icon">📞</div>
+          <div class="kp-title-group">
+            <div class="kp-name">Salesforce Connector</div>
+            <div class="kp-meta">Angular · Node.js · Cisco CTI &nbsp;|&nbsp; 09/2017 – 05/2019</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p class="kp-desc">Cisco Finesse–Salesforce Connector delivers CTI softphone controls within Salesforce in a Cisco Finesse environment. Supports inbound and outbound calls using U-Nexsys and Cisco UCCX, enables automatic screen pops with customer contact details, and allows agents to manage multiple communication channels including voice, email, and chat from a unified CRM interface.</p>
+        <div class="tech-stack" style="margin-top:14px; margin-bottom:0;">
+          <span class="tech-tag">Angular 2/4</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">Cisco CTI</span>
+          <span class="tech-tag">Salesforce</span>
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">CSS3</span>
+        </div>
+      </div>
+
+      <div class="kp-card">
+        <div class="kp-header">
+          <div class="kp-icon">📦</div>
+          <div class="kp-title-group">
+            <div class="kp-name">Customer Relationship Management</div>
+            <div class="kp-meta">HTML/CSS · Bootstrap · jQuery &nbsp;|&nbsp; 11/2012 – 02/2015</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <p class="kp-desc">Developed a CRM application to manage company interactions with customers and improve understanding of customer needs and behavior. The system allows users to select carriers, track shipments in real time, and access shipment documents in a centralized repository. Authorized users can view active shipment status, receive email notifications, and communicate directly with customer service representatives through the application.</p>
+        <div class="tech-stack" style="margin-top:14px; margin-bottom:0;">
+          <span class="tech-tag">HTML/CSS</span>
+          <span class="tech-tag">Bootstrap</span>
+          <span class="tech-tag">jQuery</span>
+          <span class="tech-tag">Kendo UI</span>
+          <span class="tech-tag">SQL Server</span>
+          <span class="tech-tag">MVC</span>
+        </div>
+      </div>
+
+    </div><!-- /kp-grid -->
+  </section>
+  <br/>
+  <section class="freelance-projects-section">
+    <p id="freelance-projects" class="project-name section-heading">&#128204; Freelance Projects</p>
 
   <div class="projects-grid">
 
@@ -1033,181 +1321,8 @@
     </div>
 
   </div><!-- /projects-grid -->
-
-  <!-- ═══════════════════════════════════════ WORK EXPERIENCE -->
-  <section class="experience-section">
-    <p class="section-heading">Work Experience</p>
-
-    <div class="exp-timeline">
-
-      <!-- CPOS -->
-      <div class="exp-item">
-        <div class="exp-dot">💳</div>
-        <div class="exp-body">
-          <div class="exp-header">
-            <span class="exp-role">Lead Developer</span>
-            <span class="exp-period">01/2025 – 06/2025</span>
-          </div>
-          <div class="exp-company">CPOS Payments Systems Pvt Ltd</div>
-          <div class="exp-location">Chennai, Tamil Nadu, India</div>
-          <ul class="exp-achievements">
-            <li>Developed a Tap-to-Pay mobile payment application that turns Android smartphones into contactless payment terminals without external hardware.</li>
-            <li>Integrated Stripe Terminal SDK with React Native Expo to enable secure NFC-based card and digital wallet payments on Android and iOS devices.</li>
-            <li>Built responsive and dynamic UI components to guide merchants through in-person transactions with real-time payment status and feedback.</li>
-            <li>Implemented state management and error handling for payment flows, ensuring reliability, recovery, and smooth user experience.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Lookman -->
-      <div class="exp-item">
-        <div class="exp-dot">🏥</div>
-        <div class="exp-body">
-          <div class="exp-header">
-            <span class="exp-role">Senior Software Developer</span>
-            <span class="exp-period">05/2020 – 08/2024</span>
-          </div>
-          <div class="exp-company">Lookman Electroplast Industries Ltd</div>
-          <div class="exp-location">Chennai, Tamil Nadu, India</div>
-          <ul class="exp-achievements">
-            <li>Developed and enhanced an HMIS platform enabling instant appointment booking for doctors and services, supporting healthcare and multi-business use cases.</li>
-            <li>Built scalable GraphQL APIs using Node.js, TypeScript, and MongoDB &amp; ReactJS leveraging aggregation pipelines for optimized data retrieval.</li>
-            <li>Integrated calendar and video conferencing platforms such as Google, Outlook, Zoom, GoToMeeting, and Webex for virtual consultations.</li>
-            <li>Deployed backend services on AWS Lambda using the Serverless framework, monitored via CloudWatch and AWS SES, and contributed to ReactJS booking and appointment modules deployed on AWS Amplify and AWS EC2.</li>
-            <li>Implemented automated workflows including global time zone handling, reminders, and notifications, improving scheduling efficiency.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Servion -->
-      <div class="exp-item">
-        <div class="exp-dot">📞</div>
-        <div class="exp-body">
-          <div class="exp-header">
-            <span class="exp-role">Senior Software Engineer</span>
-            <span class="exp-period">08/2017 – 05/2020</span>
-          </div>
-          <div class="exp-company">Servion Global Solutions</div>
-          <div class="exp-location">Chennai, Tamil Nadu, India</div>
-          <ul class="exp-achievements">
-            <li>Developed a Cisco Finesse–Salesforce CTI Connector enabling softphone controls and automatic customer screen pops within Salesforce CRM for call center agents.</li>
-            <li>Built responsive and scalable UI components using Angular 2/4, HTML5, and CSS3, improving agent productivity and usability.</li>
-            <li>Designed and implemented backend services using Node.js (ES6) to handle inbound and outbound call workflows via U-Nexsys and Cisco UCCX.</li>
-            <li>Handled requirement analysis, development, deployment, and production support, collaborating with cross-functional teams to ensure high availability and performance.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- RR Donnelley -->
-      <div class="exp-item">
-        <div class="exp-dot">🖨️</div>
-        <div class="exp-body">
-          <div class="exp-header">
-            <span class="exp-role">Software Engineer</span>
-            <span class="exp-period">01/2012 – 08/2017</span>
-          </div>
-          <div class="exp-company">RR Donnelley</div>
-          <div class="exp-location">Chennai, Tamil Nadu, India</div>
-          <ul class="exp-achievements">
-            <li>Designed and developed responsive UI components using HTML, CSS, Bootstrap, jQuery, and Kendo UI to ensure consistent user experience across the CRM application.</li>
-            <li>Collaborated with MVC developers to integrate UI layers with backend services and SQL Server 2008 data sources.</li>
-            <li>Created reusable UI controls and web forms for shipment tracking, document access, and customer communication features.</li>
-            <li>Ensured cross-browser compatibility, UI consistency, and usability standards across multiple CRM modules.</li>
-          </ul>
-        </div>
-      </div>
-
-    </div><!-- /exp-timeline -->
   </section>
-
-  <!-- ═══════════════════════════════════════ KEY PROJECTS -->
-  <section class="key-projects-section">
-    <p class="section-heading">Key Projects</p>
-
-    <div class="kp-grid">
-
-      <div class="kp-card">
-        <div class="kp-header">
-          <div class="kp-icon">💳</div>
-          <div class="kp-title-group">
-            <div class="kp-name">Tap-to-Pay Application</div>
-            <div class="kp-meta">React Native (Expo) · Stripe Terminal · NFC &nbsp;|&nbsp; 01/2025 – 06/2025</div>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <p class="kp-desc">Developed a mobile payment application that turns Android smartphones into contactless payment terminals without additional hardware. Built user interfaces and core features using React Native and Expo, enabling NFC-based tap-to-pay transactions. Ensured a smooth merchant experience for in-person card and digital wallet payments, focusing on performance, reliability, and secure transaction handling.</p>
-        <div class="tech-stack" style="margin-top:14px; margin-bottom:0;">
-          <span class="tech-tag">React Native</span>
-          <span class="tech-tag">Expo</span>
-          <span class="tech-tag">Stripe Terminal SDK</span>
-          <span class="tech-tag">NFC</span>
-          <span class="tech-tag">TypeScript</span>
-        </div>
-      </div>
-
-      <div class="kp-card">
-        <div class="kp-header">
-          <div class="kp-icon">🏥</div>
-          <div class="kp-title-group">
-            <div class="kp-name">HMIS Platform</div>
-            <div class="kp-meta">Node.js · Apollo GraphQL · MongoDB · ReactJS · AWS Lambda &nbsp;|&nbsp; 05/2020 – 08/2024</div>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <p class="kp-desc">Used HMIS to optimize appointment scheduling with instant bookings for doctor consultations and services. Led development of a flexible platform supporting seminar classes, salon bookings, and other business needs. Implemented streamlined workflows, global time zone handling, automated reminders, and integrations with calendars and video conferencing tools such as Google, Outlook, Zoom, and Webex.</p>
-        <div class="tech-stack" style="margin-top:14px; margin-bottom:0;">
-          <span class="tech-tag">Node.js</span>
-          <span class="tech-tag">Apollo GraphQL</span>
-          <span class="tech-tag">MongoDB</span>
-          <span class="tech-tag">ReactJS</span>
-          <span class="tech-tag">AWS Lambda</span>
-          <span class="tech-tag">Serverless</span>
-          <span class="tech-tag">TypeScript</span>
-        </div>
-      </div>
-
-      <div class="kp-card">
-        <div class="kp-header">
-          <div class="kp-icon">📞</div>
-          <div class="kp-title-group">
-            <div class="kp-name">Salesforce Connector</div>
-            <div class="kp-meta">Angular · Node.js · Cisco CTI &nbsp;|&nbsp; 09/2017 – 05/2019</div>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <p class="kp-desc">Cisco Finesse–Salesforce Connector delivers CTI softphone controls within Salesforce in a Cisco Finesse environment. Supports inbound and outbound calls using U-Nexsys and Cisco UCCX, enables automatic screen pops with customer contact details, and allows agents to manage multiple communication channels including voice, email, and chat from a unified CRM interface.</p>
-        <div class="tech-stack" style="margin-top:14px; margin-bottom:0;">
-          <span class="tech-tag">Angular 2/4</span>
-          <span class="tech-tag">Node.js</span>
-          <span class="tech-tag">Cisco CTI</span>
-          <span class="tech-tag">Salesforce</span>
-          <span class="tech-tag">HTML5</span>
-          <span class="tech-tag">CSS3</span>
-        </div>
-      </div>
-
-      <div class="kp-card">
-        <div class="kp-header">
-          <div class="kp-icon">📦</div>
-          <div class="kp-title-group">
-            <div class="kp-name">Customer Relationship Management</div>
-            <div class="kp-meta">HTML/CSS · Bootstrap · jQuery &nbsp;|&nbsp; 11/2012 – 02/2015</div>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <p class="kp-desc">Developed a CRM application to manage company interactions with customers and improve understanding of customer needs and behavior. The system allows users to select carriers, track shipments in real time, and access shipment documents in a centralized repository. Authorized users can view active shipment status, receive email notifications, and communicate directly with customer service representatives through the application.</p>
-        <div class="tech-stack" style="margin-top:14px; margin-bottom:0;">
-          <span class="tech-tag">HTML/CSS</span>
-          <span class="tech-tag">Bootstrap</span>
-          <span class="tech-tag">jQuery</span>
-          <span class="tech-tag">Kendo UI</span>
-          <span class="tech-tag">SQL Server</span>
-          <span class="tech-tag">MVC</span>
-        </div>
-      </div>
-
-    </div><!-- /kp-grid -->
-  </section>
+  
 
 </main>
 
@@ -1236,6 +1351,30 @@
     document.getElementById('lb-img').src = '';
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+<!-- Scroll to top button -->
+<button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">&#8679;</button>
+
+<script>
+  // Show/hide scroll-to-top button
+  const scrollBtn = document.getElementById('scroll-top-btn');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', window.scrollY > 300);
+  });
+
+  // Highlight active nav link based on scroll position
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const sections = ['work-experience', 'key-projects', 'freelance-projects'].map(id => document.getElementById(id));
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (sec && window.scrollY >= sec.offsetTop - 80) current = sec.id;
+    });
+    tocLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  });
 </script>
 
 </body>
