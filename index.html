@@ -488,6 +488,133 @@
 
     .lb-close:hover { opacity: 1; }
 
+    /* ── CONTACT CTA SECTION ─────────────────── */
+    .contact-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      color: white;
+      text-align: center;
+      padding: 64px 24px;
+    }
+
+    .contact-section .avail-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #4ade80;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 24px;
+    }
+
+    .contact-section .avail-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #f1f5f9;
+    }
+
+    .contact-section p.contact-sub {
+      color: #94a3b8;
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #2563eb;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      color: #cbd5e1;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: background 0.2s, transform 0.15s;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.14); transform: translateY(-1px); }
+
+    .contact-email-display {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 12px 20px;
+      color: #60a5fa;
+      font-size: 15px;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.3px;
+    }
+
+    .copy-toast {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e293b;
+      color: #4ade80;
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
     /* ── FOOTER ─────────────────────────────── */
     footer {
       background: var(--header-bg);
@@ -716,7 +843,7 @@
 <!-- ═══════════════════════════════════════ HEADER -->
 <header>
   <div class="period-badge">&#128197; Freelance Period: June 2025 – March 2026</div>
-  <h1>Full-Stack Developer Portfolio</h1>
+  <h1>Full-Stack Developer - ReactJS, Node.js, React Native</h1>
   <p class="subtitle">
     Production-grade applications and built freelance applications end-to-end as a sole contract developer
     for clients across food delivery, construction management, e-commerce, and AI Powered Lead Generation.
@@ -725,12 +852,13 @@
     <span class="header-skill">Node.js (7+ years)</span>
     <span class="header-skill">React 4+</span>
     <span class="header-skill">React Native 3+</span>
-    <span class="header-skill">TypeScript 3+</span>
+    <span class="header-skill">TypeScript 4+</span>
+    <span class="header-skill">GraphQL 4+</span>
     <span class="header-skill">MongoDB 5+</span>
     <span class="header-skill">Redis 2+</span>
     <span class="header-skill">RabbitMQ 2+</span>
     <span class="header-skill">AWS 5+</span>
-    <span class="header-skill">Claude AI 1+</span>
+    <span class="header-skill">Claude AI 2+</span>
     <span class="header-skill">Docker</span>
   </div>
 </header>
@@ -1340,6 +1468,28 @@
 
 </main>
 
+<!-- ═══════════════════════════════════════ CONTACT CTA -->
+<section class="contact-section">
+  <div class="avail-badge">Open to Work &amp; Freelance</div>
+  <h2>Have a job or project opportunity?</h2>
+  <p class="contact-sub">
+    I'm available for full-time roles and freelance engagements. Send me a message — I typically respond within 24 hours.
+  </p>
+  <div class="contact-actions">
+    <a class="btn-primary" href="mailto:kprabha25@gmail.com?subject=Job%20%2F%20Work%20Opportunity&body=Hi%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20opportunity.">
+      &#9993; Send me an Opportunity
+    </a>
+    <button class="btn-secondary" onclick="copyEmail()">
+      &#128203; Copy Email
+    </button>
+  </div>
+  <div class="contact-email-display">
+    kprabha25@gmail.com
+  </div>
+</section>
+
+<div class="copy-toast" id="copy-toast">Email copied to clipboard!</div>
+
 <!-- ═══════════════════════════════════════ FOOTER -->
 <footer>
   <p style="margin-bottom:8px;">
@@ -1347,6 +1497,7 @@
     <strong style="color:#f1f5f9;">Available for full-time roles and freelance engagements</strong>
   </p>
   <p>All projects delivered June 2025 – March 2026 &nbsp;|&nbsp; Source code available for interview walk-through on request</p>
+  <p style="margin-top:10px;"><a href="mailto:kprabha25@gmail.com">kprabha25@gmail.com</a></p>
 </footer>
 
 <!-- ═══════════════════════════════════════ LIGHTBOX -->
@@ -1356,6 +1507,14 @@
 </div>
 
 <script>
+  function copyEmail() {
+    navigator.clipboard.writeText('kprabha25@gmail.com').then(function() {
+      var toast = document.getElementById('copy-toast');
+      toast.style.display = 'block';
+      setTimeout(function() { toast.style.display = 'none'; }, 2200);
+    });
+  }
+
   function openLightbox(src) {
     document.getElementById('lb-img').src = src;
     document.getElementById('lightbox').classList.add('open');
